@@ -1,25 +1,31 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 	<script src="http://how2j.cn/study/vue.min.js"></script>
 </head>
 <body>
 	<div id="div1">	
-	  {{gareen.name}}
+	  <div>一共点击了  {{clickNumber}} 次</div>
+	  <!--<button v-on:click="count">点击</button></button>-->
+	  <button @click="count">点击</button></button>
+	  
 	 </div>
 </body>
   
 	<script>
 		//准备数据
-		var gareen = {"name":"盖伦","hp":616};
-		 
+		var gareen = {"name":"盖伦","hp":616};	 
 		//通过vue.js 把数据和对应的视图关联起来
 		new Vue({
-			  el: '#div1',
-			  data: {
-				message: gareen
-			  }
-			})
+			el: '#div1',
+			data: {
+				clickNumber: 0
+			},
+			methods:{
+				count:function(){
+					this.clickNumber++;
+				}
+			}
+		})
 	</script>
 </html>
